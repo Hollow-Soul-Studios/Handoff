@@ -1,18 +1,28 @@
 name: Bug report
-description: Something in Handoff for UMG does not work as documented.
+description: Something in Handoff for UMG, Handoff for Slate or the Figma exporter does not work as documented.
 title: "[Bug]: "
 labels: ["bug", "needs-bundle"]
 body:
+  - type: dropdown
+    id: product
+    attributes:
+      label: Product
+      options:
+        - Handoff for UMG
+        - Handoff for Slate
+        - Figma exporter
+    validations:
+      required: true
   - type: markdown
     attributes:
       value: |
-        Thanks for reporting. Run **Tools > Handoff for UMG > Check Setup...**, then **Create Support Bundle...** and attach the zip below. The bundle contains `ISSUE_BODY.md`, pre-filled in the same order as this form.
+        Thanks for reporting. Run **Tools > Handoff for UMG > Check Setup...** (or **Handoff for Slate**), then **Create Support Bundle...** and attach the zip below. The bundle contains `ISSUE_BODY.md`, pre-filled in the same order as this form.
         Nothing is uploaded automatically and your Figma token is never included.
   - type: input
     id: plugin_version
     attributes:
       label: Plugin version
-      description: Shown in Edit > Plugins, for example 1.0.0.
+      description: Shown in Edit > Plugins, for example 1.0.0. For the exporter, the version shown in its UI.
       placeholder: "1.0.0"
     validations:
       required: true
@@ -42,9 +52,12 @@ body:
       label: Area
       options:
         - Import / layout
+        - Plan / diff window
         - Re-import / merge / re-link
         - Fonts and styles
-        - CommonUI
+        - Resources / packaging (Slate)
+        - Generated code / compile errors (Slate)
+        - CommonUI (UMG)
         - Preview / render
         - REST fetch
         - Python / commandlet / CI
@@ -57,7 +70,7 @@ body:
     id: health_summary
     attributes:
       label: Health check summary
-      description: Paste the "Health check summary" section of ISSUE_BODY.md from the support bundle, or the output of the `Handoff.Health` console command.
+      description: Paste the "Health check summary" section of ISSUE_BODY.md from the support bundle, or the output of the `Handoff.Health` (UMG) or `SlateHandoff.Health` (Slate) console command.
       render: markdown
     validations:
       required: true
@@ -89,7 +102,7 @@ body:
     id: attachments
     attributes:
       label: Attachments
-      description: Drag the support bundle zip here (Saved/HandoffSupport/HandoffSupport_<timestamp>.zip). You can also add the package, a screenshot or the `-Explain` output. Remove anything confidential first.
+      description: Drag the support bundle zip here (Saved/HandoffSupport/HandoffSupport_<timestamp>.zip for UMG, Saved/SlateHandoffSupport/SlateHandoffSupport_<timestamp>.zip for Slate). You can also add the package, a screenshot or the `-Explain` output. Remove anything confidential first.
   - type: checkboxes
     id: checklist
     attributes:
@@ -97,7 +110,7 @@ body:
       options:
         - label: I searched the existing issues and the Troubleshooting page.
           required: true
-        - label: I ran Tools > Handoff for UMG > Check Setup...
+        - label: I ran Tools > Handoff for UMG / Handoff for Slate > Check Setup... (skip if your issue is only about the exporter)
           required: true
         - label: I attached the support bundle, or explained above why I cannot.
           required: true

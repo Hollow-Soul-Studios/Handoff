@@ -3,10 +3,20 @@ description: Suggest an improvement. Check the roadmap first.
 title: "[Feature]: "
 labels: ["enhancement"]
 body:
+  - type: dropdown
+    id: product
+    attributes:
+      label: Product
+      options:
+        - Handoff for UMG
+        - Handoff for Slate
+        - Figma exporter
+    validations:
+      required: true
   - type: markdown
     attributes:
       value: |
-        Please check the [roadmap](https://github.com/Hollow-Soul-Studios/Handoff-for-UMG/blob/main/ROADMAP.md) and the existing issues first. Non-goals: runtime module, gameplay logic, full UMG-to-Figma round trip.
+        Please check the [roadmap](https://github.com/Hollow-Soul-Studios/Handoff-for-UMG/blob/main/ROADMAP.md) and the existing issues first. Non-goals: runtime module, gameplay logic, full round trip back to Figma; Handoff for Slate does not produce Widget Blueprints and Handoff for UMG does not produce C++.
   - type: textarea
     id: problem
     attributes:
@@ -30,9 +40,12 @@ body:
       label: Area
       options:
         - Import / layout
+        - Plan / diff window
+        - Generated code (Slate)
         - Re-import / merge / re-link
         - Fonts and styles
-        - CommonUI
+        - Resources / packaging (Slate)
+        - CommonUI (UMG)
         - Preview / render
         - REST fetch
         - Python / commandlet / CI

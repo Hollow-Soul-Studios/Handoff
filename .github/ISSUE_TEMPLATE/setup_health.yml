@@ -3,10 +3,19 @@ description: A health check shows Warning or Fail and you cannot fix it, or the 
 title: "[Setup]: "
 labels: ["setup", "needs-bundle"]
 body:
+  - type: dropdown
+    id: product
+    attributes:
+      label: Product
+      options:
+        - Handoff for UMG
+        - Handoff for Slate
+    validations:
+      required: true
   - type: markdown
     attributes:
       value: |
-        See the [health check reference](https://github.com/Hollow-Soul-Studios/Handoff-for-UMG/blob/main/docs/support/health-checks.md) for what each check means and the usual fix.
+        See the health check reference for what each check means and the usual fix: [Handoff for UMG](https://github.com/Hollow-Soul-Studios/Handoff-for-UMG/blob/main/docs/umg/support/health-checks.md), [Handoff for Slate](https://github.com/Hollow-Soul-Studios/Handoff-for-UMG/blob/main/docs/slate/support/health-checks.md).
   - type: input
     id: plugin_version
     attributes:
@@ -29,22 +38,38 @@ body:
     attributes:
       label: Which check?
       options:
-        - HC01 Plugin modules
-        - HC02 Engine version
-        - HC03 CommonUI
-        - HC04 Enhanced Input support (CommonUI)
-        - HC05 Input action folder
-        - HC06 Default destination
-        - HC07 Font mappings
-        - HC08 Font search folders
-        - HC09 Import manifests
-        - HC10 Write access
-        - HC11 Backups
-        - HC12 Source control
-        - HC13 Python Editor Script Plugin
-        - HC14 Figma REST token
-        - HC15 Rendering (preview / -Render)
-        - HC16 Handoff errors this session
+        - "UMG HC01 Plugin modules"
+        - "UMG HC02 Engine version"
+        - "UMG HC03 CommonUI"
+        - "UMG HC04 Enhanced Input support (CommonUI)"
+        - "UMG HC05 Input action folder"
+        - "UMG HC06 Default destination"
+        - "UMG HC07 Font mappings"
+        - "UMG HC08 Font search folders"
+        - "UMG HC09 Import manifests"
+        - "UMG HC10 Write access"
+        - "UMG HC11 Backups"
+        - "UMG HC12 Source control"
+        - "UMG HC13 Python Editor Script Plugin"
+        - "UMG HC14 Figma REST token"
+        - "UMG HC15 Rendering (preview / -Render)"
+        - "UMG HC16 Handoff errors this session"
+        - "Slate HC01 Plugin and engine version"
+        - "Slate HC02 Destination folder"
+        - "Slate HC03 Module dependencies"
+        - "Slate HC04 Resources folder"
+        - "Slate HC05 Resources staged for packaging"
+        - "Slate HC06 Import manifests"
+        - "Slate HC07 Baselines"
+        - "Slate HC08 Edited generated files"
+        - "Slate HC09 User stubs"
+        - "Slate HC10 Font mappings"
+        - "Slate HC11 Font search folders"
+        - "Slate HC12 Backups"
+        - "Slate HC13 Source control"
+        - "Slate HC14 Python Editor Script Plugin"
+        - "Slate HC15 Figma REST token"
+        - "Slate HC16 IDE project files"
     validations:
       required: true
   - type: dropdown
@@ -61,7 +86,7 @@ body:
     id: output
     attributes:
       label: Output
-      description: Paste the output of the check (Check Setup window, `Handoff.Health`, or `-run=HandoffImport -Health`). Do not include your Figma token.
+      description: Paste the output of the check (Check Setup window, `Handoff.Health` / `SlateHandoff.Health`, or `-run=HandoffImport -Health` / `-run=SlateHandoffImport -Health`). Do not include your Figma token.
       render: text
     validations:
       required: true
