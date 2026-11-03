@@ -18,7 +18,7 @@ Windows is tested. Mac and Linux are allow-listed in the plugin modules but have
 
 ## Is the Figma plugin free? Do I need a paid Figma seat?
 The exporter is free and needs no token or paid seat: it reads your file through the plugin API. It ships prebuilt in
-the plugin download (`Extras/FigmaExporter`); load it once in the Figma desktop app, see [Figma exporter](../figma-exporter.md).
+the plugin download (`Extras/FigmaExporter`); load it once in the Figma desktop app, see [Figma exporter](../../figma-exporter.md).
 The optional REST fetch inside Unreal needs a personal access token from a Dev or Full seat and counts against your
 seat's rate limit.
 
@@ -52,5 +52,5 @@ choices for one-off conversions. Handoff for UMG is aimed at the repeated round 
 safely, with a reviewable diff, while keeping your Blueprint logic.
 
 ## How do I get support?
-See [SUPPORT.md](../../SUPPORT.md): run Check Setup, create a support bundle, and open an issue. Replies within 2
+See [SUPPORT.md](../../../SUPPORT.md): run Check Setup, create a support bundle, and open an issue. Replies within 2
 business days.

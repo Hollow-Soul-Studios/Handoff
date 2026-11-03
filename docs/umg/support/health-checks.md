@@ -21,7 +21,7 @@ The commandlet exits with code **1** if any check is **Fail**, otherwise 0.
 | **Fail** | Something that you rely on is broken. Fix it before importing. |
 
 Every check has a stable id (HC01 to HC16) that is also used in the support bundle's `health.json` and in the
-[setup health issue form](../../.github/ISSUE_TEMPLATE/setup_health.yml).
+[setup health issue form](../../../.github/ISSUE_TEMPLATE/setup_health.yml).
 
 ## The checks
 
@@ -45,5 +45,5 @@ Every check has a stable id (HC01 to HC16) that is also used in the support bund
 | HC16 | Handoff errors this session | Counts `LogHandoff: Error` lines in the current session log. **Warning** if there are any. | Filter the Output Log by `LogHandoff`, read the first error, check [Troubleshooting](../Troubleshooting.md); attach a support bundle if it persists. |
 
 An unused optional feature is normally reported as **Info**, not a problem. When you file an issue, a Warning or Fail
-that matches your problem helps us a lot; use the [setup health form](../../.github/ISSUE_TEMPLATE/setup_health.yml)
+that matches your problem helps us a lot; use the [setup health form](../../../.github/ISSUE_TEMPLATE/setup_health.yml)
 if one of the checks itself looks wrong.
