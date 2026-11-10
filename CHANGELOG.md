@@ -120,7 +120,7 @@ First public release. Supports Unreal Engine 5.8 (tested) and 5.7 (one plugin pa
   `health_check_report()` and `create_support_bundle()`, commandlet `-Health` and `-SupportBundle`.
 
 #### Samples and documentation
-* `MainMenu_v1.zip` and `MainMenu_v2.zip` sample packages and the v1 to v2 re-import scenario.
+* `MainMenu_v1` and `MainMenu_v2` sample packages (package folders: `layout.json` + `Images/`) and the v1 to v2 re-import scenario.
 * Quick start, code generation, re-import rules, fonts and styles, automation, troubleshooting, layout schema, design
   log.
 

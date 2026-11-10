@@ -12,8 +12,9 @@
    `[action=IA_Confirm]`, `[safezone]`, `[inline]`, `[ignore]`, `[rasterize]`, `[widget=Border]`.
    See [CodeGeneration.md](CodeGeneration.md).
 
-You can try the importer without Figma using `Samples/MainMenu_v1.zip` (see `Samples/SCENARIO.md`). Any `.zip`
-package works; the exporter names its files `*.handoff.zip` by convention.
+You can try the importer without Figma using the package folder `Samples/MainMenu_v1` (see `Samples/SCENARIO.md`):
+in the import window use **Folder...**, or pass the folder to `-Package=`. Any `.zip` package works too; the
+exporter names its files `*.handoff.zip` by convention.
 
 ## 2. Prepare the project
 
