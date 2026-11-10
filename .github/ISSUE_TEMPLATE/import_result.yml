@@ -1,12 +1,21 @@
 name: Import result looks wrong
-description: The imported Widget Blueprint differs visually or structurally from the design.
+description: The imported Widget Blueprint or generated Slate code differs from the design, or generated code does not compile.
 title: "[Import]: "
 labels: ["import", "needs-bundle"]
 body:
+  - type: dropdown
+    id: product
+    attributes:
+      label: Product
+      options:
+        - Handoff for UMG
+        - Handoff for Slate
+    validations:
+      required: true
   - type: markdown
     attributes:
       value: |
-        For layout, size, colour, text or texture mismatches. Please attach a support bundle (Tools > Handoff for UMG > Create Support Bundle...) and a screenshot.
+        For layout, size, colour, text or texture/image mismatches, and (Handoff for Slate) generated code that does not compile. Please attach a support bundle (Tools > Handoff for UMG / Handoff for Slate > Create Support Bundle...) and a screenshot.
   - type: input
     id: plugin_version
     attributes:
@@ -27,31 +36,36 @@ body:
   - type: dropdown
     id: mode
     attributes:
-      label: Import mode
+      label: Import mode / where does it differ?
+      description: UMG - the import mode. Slate - where you see the difference.
       options:
-        - Plain UMG
-        - CommonUI mode
+        - "UMG: Plain UMG"
+        - "UMG: CommonUI mode"
+        - "Slate: Preview window"
+        - "Slate: Running widget (after build)"
+        - "Slate: Generated code does not compile"
+        - "Slate: Resources or fonts missing at runtime"
     validations:
       required: true
   - type: textarea
     id: what_differs
     attributes:
       label: What differs from the design?
-      description: Which layer or frame, what you see in Unreal, what the design shows.
+      description: Which layer or frame, what you see in Unreal (for Slate compile errors, the first compiler error and the generated file it points at), what the design shows.
     validations:
       required: true
   - type: textarea
     id: render
     attributes:
       label: Render or screenshot
-      description: Drag the Figma frame and the Unreal result (Preview window or `-Render` PNG) here, at the same resolution if possible.
+      description: Drag the Figma frame and the Unreal result (Preview window, running widget or `-Render` PNG) here, at the same resolution if possible.
     validations:
       required: true
   - type: textarea
     id: explain
     attributes:
       label: "-Explain output"
-      description: "Output of `UnrealEditor-Cmd.exe <Project>.uproject -run=HandoffImport -Package=<zip> -Plan -Explain -Report=<file>`. See Docs/Automation.md."
+      description: "Output of `UnrealEditor-Cmd.exe <Project>.uproject -run=HandoffImport -Package=<zip> -Plan -Explain -Report=<file>` (`-run=SlateHandoffImport` for Handoff for Slate). See Docs/Automation.md of your product."
       render: text
   - type: textarea
     id: messages
@@ -83,7 +97,7 @@ body:
       options:
         - label: I searched the existing issues and the Troubleshooting page.
           required: true
-        - label: I ran Tools > Handoff for UMG > Check Setup...
+        - label: I ran Tools > Handoff for UMG / Handoff for Slate > Check Setup...
           required: true
         - label: I attached the support bundle or explained why not.
           required: true

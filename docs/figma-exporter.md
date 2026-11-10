@@ -2,7 +2,15 @@
 
 The companion exporter is a free Figma plugin that works with Figma design. It exports the frames you select to a
 tool-neutral `.handoff.zip` (`layout.json` plus PNG and optional SVG assets) that the Unreal importer turns into Widget
-Blueprints. It ships prebuilt with the plugin download in `HandoffForUMG/Extras/FigmaExporter/` (see the README there).
+Blueprints (**Handoff for UMG**) or Slate C++ code (**Handoff for Slate**). The same prebuilt exporter ships with each
+plugin download:
+
+| Product | Exporter folder |
+|---|---|
+| Handoff for UMG | `HandoffForUMG/Extras/FigmaExporter/` |
+| Handoff for Slate | `HandoffForSlate/Extras/FigmaExporter/` |
+
+See the README in that folder.
 
 * Works offline: its manifest declares no network access. Nothing is uploaded.
 * No REST API, no access token, no Enterprise plan: it reads the file through the Figma Plugin API.
@@ -16,10 +24,13 @@ Figma.*
 No build step and no Node.js: the plugin download already contains the built exporter.
 
 1. Find the installed plugin folder: for a Fab install to the engine,
-   `<UE install>/Engine/Plugins/Marketplace/HandoffForUMG/`; for a project install, `<Project>/Plugins/HandoffForUMG/`.
+   `<UE install>/Engine/Plugins/Marketplace/HandoffForUMG/` or `.../HandoffForSlate/`; for a project install,
+   `<Project>/Plugins/HandoffForUMG/` or `<Project>/Plugins/HandoffForSlate/`.
 2. In the Figma desktop app choose **Plugins > Development > Import plugin from manifest...** and pick
    `Extras/FigmaExporter/manifest.json` in that folder.
 3. Keep the folder in place: Figma loads `dist/code.js` and `dist/ui.html` next to the manifest.
+
+You only need one copy; a package exported with either copy imports into either product.
 
 ## Export
 
@@ -48,16 +59,24 @@ HUD [safezone]               Logo [rasterize]              Debug [ignore]
 Icon [widget=Image]          Header [inline]
 ```
 
-What each tag does in Unreal: [Feature mapping](FeatureMapping.md).
+What each tag does: Handoff for UMG: [Feature mapping](umg/FeatureMapping.md); Handoff for Slate:
+[Code generation](slate/CodeGeneration.md).
 
 ## Import receipt (status write-back)
 
 After an import, Unreal writes `<package>.receipt.json`. In the exporter run **Load import receipt...** and choose it.
-Each layer then shows its import status and the Unreal asset it maps to. This stores a few plugin-data keys on your
-nodes (`handoff.status`, `handoff.ueAsset`, `handoff.ueWidget`, plus `handoff.exportedAt` on exported frames); these
-are the only changes the exporter makes to your Figma file.
+Each layer then shows its import status and what it maps to in Unreal. This stores a few plugin-data keys on your
+nodes; these are the only changes the exporter makes to your Figma file:
+
+| Key | Handoff for UMG | Handoff for Slate |
+|---|---|---|
+| `handoff.status` | Import status of the layer | Import status of the layer |
+| `handoff.ueAsset` | The Unreal asset (Widget Blueprint) the layer maps to | Project-relative path of the generated class header |
+| `handoff.ueWidget` | The widget in that asset | The frozen member name in that class |
+| `handoff.exportedAt` | Set on exported frames | Set on exported frames |
 
 ## Next steps
 
-Import the zip in Unreal: [Quick start](QuickStart.md). Re-importing after design changes:
-[Re-import rules](ReimportRules.md).
+Import the zip in Unreal: [UMG quick start](umg/QuickStart.md) or [Slate quick start](slate/QuickStart.md).
+Re-importing after design changes: [UMG re-import rules](umg/ReimportRules.md) or
+[Slate re-import rules](slate/ReimportRules.md).
