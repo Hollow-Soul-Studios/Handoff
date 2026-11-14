@@ -16,7 +16,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Please check the [roadmap](https://github.com/Hollow-Soul-Studios/Handoff-for-UMG/blob/main/ROADMAP.md) and the existing issues first. Non-goals: runtime module, gameplay logic, full round trip back to Figma; Handoff for Slate does not produce Widget Blueprints and Handoff for UMG does not produce C++.
+        Please check the [roadmap](https://github.com/Hollow-Soul-Studios/Handoff/blob/main/ROADMAP.md) and the existing issues first. Non-goals: runtime module, gameplay logic, full round trip back to Figma; Handoff for Slate does not produce Widget Blueprints and Handoff for UMG does not produce C++.
   - type: textarea
     id: problem
     attributes:

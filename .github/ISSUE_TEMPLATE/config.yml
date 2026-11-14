@@ -1,11 +1,11 @@
 blank_issues_enabled: false
 contact_links:
   - name: Documentation index
-    url: https://github.com/Hollow-Soul-Studios/Handoff-for-UMG/blob/main/docs/index.md
+    url: https://github.com/Hollow-Soul-Studios/Handoff/blob/main/docs/index.md
     about: Both products, the shared Figma exporter and support pages.
   - name: Handoff for UMG documentation
-    url: https://github.com/Hollow-Soul-Studios/Handoff-for-UMG/blob/main/docs/umg/plugin-readme.md
+    url: https://github.com/Hollow-Soul-Studios/Handoff/blob/main/docs/umg/plugin-readme.md
     about: Quick start, feature mapping, re-import rules, troubleshooting and health checks for Widget Blueprints.
   - name: Handoff for Slate documentation
-    url: https://github.com/Hollow-Soul-Studios/Handoff-for-UMG/blob/main/docs/slate/plugin-readme.md
+    url: https://github.com/Hollow-Soul-Studios/Handoff/blob/main/docs/slate/plugin-readme.md
     about: Quick start, code generation, re-import rules, troubleshooting and health checks for Slate C++.
